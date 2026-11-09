@@ -48,6 +48,29 @@ public class UrlsServiceTests
         );
     }
 
+    //-------------------------
+
+    [Fact]
+    public async Task CreateShortUrlAsync_ComUrlNula_DeveLancarArgumentException()
+    {
+        // Act & Assert
+        await Assert.ThrowsAsync<ArgumentException>(
+            () => _service.CreateShortUrlAsync(null!)
+        );
+    }
+
+    [Fact]
+    public async Task CreateShortUrlAsync_ComUrlMuitoLonga_DeveLancarArgumentException()
+    {
+        // Arrange
+        var urlMuitoLonga = "https://exemplo.com/" + new string('a', 2100);
+
+        // Act & Assert
+        await Assert.ThrowsAsync<ArgumentException>(
+            () => _service.CreateShortUrlAsync(urlMuitoLonga)
+        );
+    }
+
     [Fact]
     public async Task CreateShortUrlAsync_ComEsquemaInvalido_DeveLancarArgumentException()
     {
@@ -56,4 +79,7 @@ public class UrlsServiceTests
             () => _service.CreateShortUrlAsync("ftp://arquivo-invalido.com")
         );
     }
+
+
+
 }
