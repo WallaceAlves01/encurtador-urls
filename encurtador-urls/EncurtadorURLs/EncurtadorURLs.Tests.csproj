@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\encurtador-urls\encurtador-urls.csproj" />
+    <ProjectReference Include="..\encurtador-urls\EncurtadorURLs.csproj" />
   </ItemGroup>
 
 </Project>
